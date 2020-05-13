@@ -36,14 +36,14 @@ def replay():
         return False
 
 def win_check(board, mark):
-    return ((board[7] == mark and board[8] == mark and board[9] == mark) or # across the top
-    (board[4] == mark and board[5] == mark and board[6] == mark) or # across the middle
-    (board[1] == mark and board[2] == mark and board[3] == mark) or # across the bottom
-    (board[7] == mark and board[4] == mark and board[1] == mark) or # down the middle
-    (board[8] == mark and board[5] == mark and board[2] == mark) or # down the middle
-    (board[9] == mark and board[6] == mark and board[3] == mark) or # down the right side
-    (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
-    (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or 
+    (board[4] == mark and board[5] == mark and board[6] == mark) or 
+    (board[1] == mark and board[2] == mark and board[3] == mark) or 
+    (board[7] == mark and board[4] == mark and board[1] == mark) or 
+    (board[8] == mark and board[5] == mark and board[2] == mark) or
+    (board[9] == mark and board[6] == mark and board[3] == mark) or
+    (board[7] == mark and board[5] == mark and board[3] == mark) or 
+    (board[9] == mark and board[5] == mark and board[1] == mark)) 
 
 def place_marker(board, marker, position):
 
@@ -98,26 +98,25 @@ while True:
     
     while game_on:
         if turn == 'Player 1':
-            # Player1's turn.
-            
+           
             display_board(theBoard)
             position = player_choice(theBoard)
             place_marker(theBoard, player1_marker, position)
 
             if win_check(theBoard, player1_marker):
                 display_board(theBoard)
-                print('Congratulations! You have won the game!')
+                print('You have won the game!')
                 game_on = False
             else:
                 if full_board_check(theBoard):
                     display_board(theBoard)
-                    print('The game is a draw!')
+                    print('Draw')
                     break
                 else:
                     turn = 'Player 2'
 
         else:
-            # Player2's turn.
+            
             
             display_board(theBoard)
             position = player_choice(theBoard)
